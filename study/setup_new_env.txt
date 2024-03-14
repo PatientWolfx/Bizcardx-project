@@ -1,0 +1,30 @@
+os.environ['KMP_DUPLICATE_LIB_OK']='True' explain this code
+
+Explanation:
+The code os.environ['KMP_DUPLICATE_LIB_OK']='True' sets an environment variable within the Python script using the os module. 
+This particular environment variable, KMP_DUPLICATE_LIB_OK, is related to the Intel Math Kernel Library (MKL), which is used 
+for optimized mathematical computations in some Python libraries like NumPy.
+
+Explanation:
+
+os.environ: This is a dictionary-like object in the os module that represents the environment variables of the current process.
+
+'KMP_DUPLICATE_LIB_OK': This is the name of the environment variable being set.
+
+='True': This sets the value of the environment variable to the string "True".
+
+Explanation of the Environment Variable (KMP_DUPLICATE_LIB_OK):
+
+	The Intel MKL library has an optimization feature where it can parallelize certain computations. However, in some cases, 
+when multiple libraries in the same process use MKL, conflicts might arise.Setting KMP_DUPLICATE_LIB_OK to 'True' allows 
+multiple copies of the MKL library to coexist in the same process. This can be useful in scenarios where different parts 
+of the code or different libraries use MKL independently.The environment variable essentially tells MKL that it's 
+acceptable to have duplicate copies of the library in the process.
+
+Note: 
+	This workaround is often used when dealing with certain compatibility issues, especially in environments where multiple 
+libraries or components might be using MKL independently. However, it's important to understand the implications and use 
+it judiciously, as it might not be a solution for all cases.
+
+
+
